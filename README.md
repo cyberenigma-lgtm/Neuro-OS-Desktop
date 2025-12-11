@@ -4,6 +4,9 @@
 
 # 🧠 Neuro-OS Desktop Environment (Español)
 > **Entorno de escritorio multiplataforma – Motor gráfico + gestor de ventanas + ecosistema de aplicaciones**
+>
+> 🚧 **EN CONSTRUCCIÓN / UNDER CONSTRUCTION** 🚧
+> *Este proyecto tiene bugs conocidos que se irán corrigiendo. No es una versión estable.*
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Qt](https://img.shields.io/badge/PySide6-Qt%20for%20Python-green?style=for-the-badge&logo=qt)](https://doc.qt.io/qtforpython/)
@@ -188,6 +191,9 @@ Este proyecto fue construido:
 
 # 🧠 Neuro-OS Desktop Environment (English)
 > **Cross-platform Desktop Environment – Graphics Engine + Window Manager + App Ecosystem**
+>
+> 🚧 **UNDER CONSTRUCTION** 🚧
+> *This project has known bugs that will be fixed progressively. Do not consider it stable yet.*
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Qt](https://img.shields.io/badge/PySide6-Qt%20for%20Python-green?style=for-the-badge&logo=qt)](https://doc.qt.io/qtforpython/)
