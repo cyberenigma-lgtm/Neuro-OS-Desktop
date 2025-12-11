@@ -173,6 +173,14 @@ Este proyecto fue construido:
 
 ---
 
+## ®️ Propiedad Intelectual
+
+> **AVISO LEGAL:** La marca **Neuro-OS™**, el logotipo, y la arquitectura de software "Neuro-Genesis" se encuentran actualmente en **proceso de registro y patente** ante los organismos de Propiedad Intelectual competentes.
+>
+> El uso no autorizado de la marca o la redistribución comercial del código fuente sin consentimiento explícito está prohibido durante este periodo de tramitación.
+
+---
+
 ## 🤝 Contribuciones & Contacto
 
 **Pull requests bienvenidos.** Se aceptan módulos nuevos, apps, mejoras de seguridad y traducciones.
@@ -335,6 +343,14 @@ This project was built:
 
 *   **Author:** José Manuel Moreno Cano
 *   **Email:** neuro.so.ia.sim@gmail.com
+
+---
+
+## ®️ Intellectual Property
+
+> **LEGAL NOTICE:** The **Neuro-OS™** trademark, logo, and "Neuro-Genesis" software architecture are currently in the **process of registration and patenting** with the relevant Intellectual Property offices.
+>
+> Unauthorized use of the brand or commercial redistribution of the source code without explicit consent is prohibited during this processing period.
 
 ---
 
