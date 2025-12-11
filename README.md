@@ -1,9 +1,9 @@
-# 🧠 Neuro-OS Desktop Environment
-> **Entorno de escritorio multiplataforma – Motor gráfico + gestor de ventanas + ecosistema de aplicaciones**
-
 <div align="center">
   <img src="screenshots/readme_final/neuro_logo_header.png" alt="Neuro-OS Official Logo" width="600">
 </div>
+
+# 🧠 Neuro-OS Desktop Environment (Español)
+> **Entorno de escritorio multiplataforma – Motor gráfico + gestor de ventanas + ecosistema de aplicaciones**
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Qt](https://img.shields.io/badge/PySide6-Qt%20for%20Python-green?style=for-the-badge&logo=qt)](https://doc.qt.io/qtforpython/)
@@ -179,7 +179,160 @@ Este proyecto fue construido:
 
 ---
 
+<br>
+<br>
+
+<div align="center">
+  <img src="screenshots/readme_final/neuro_logo_header.png" alt="Neuro-OS Official Logo" width="600">
+</div>
+
+# 🧠 Neuro-OS Desktop Environment (English)
+> **Cross-platform Desktop Environment – Graphics Engine + Window Manager + App Ecosystem**
+
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
+[![Qt](https://img.shields.io/badge/PySide6-Qt%20for%20Python-green?style=for-the-badge&logo=qt)](https://doc.qt.io/qtforpython/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)](https://www.microsoft.com/windows)
+
+---
+
+| **Version** | **Status** | **Author** |
+|:---:|:---:|:---:|
+| v3.0 | Release Candidate | José Manuel Moreno Cano |
+
+## 📌 What is Neuro-OS Desktop?
+
+**Neuro-OS Desktop** is a complete desktop environment written in Python (PySide6/Qt), designed to run on top of Windows or Linux.
+
+It is not a standalone operating system, but an advanced graphical layer that simulates the experience of a modern OS featuring:
+
+*   ✅ Futuristic OS-style Interface
+*   ✅ Dock, Multitasking, MDI Windows
+*   ✅ App Manager & Visual Themes
+*   ✅ Autonomous AI Engine
+*   ✅ Multimedia & Graphics Suite
+*   ✅ Multi-layer Security System
+
+> *This repository contains only the complete Desktop Environment, not the kernel nor the experimental ISO.*
+
+---
+
+## ⚠️ Important: What this project is NOT
+
+To avoid confusion:
+
+### ❌ Neuro-OS is NOT (yet):
+*   A standalone or independent operating system.
+*   A replacement for Windows, Linux, or macOS.
+*   A custom low-level kernel.
+*   An environment with custom drivers or hardware abstraction layers.
+
+### ✔️ Neuro-OS IS:
+*   **A desktop environment** running on an existing OS.
+*   **A modular ecosystem** of applications.
+*   **A cross-platform OS simulation**.
+*   **An educational and experimental project** to expand capabilities with AI.
+
+---
+
+## 🚀 Key Features
+
+### 🖥️ Full Desktop Environment
+*   **Boot Screen:** Simulated boot sequence.
+*   **Secure Login:** Real authentication (PBKDF2 + Salt) with biometric visuals.
+*   **Desktop:** Dynamic wallpaper (StarField Engine) and customizable Dock.
+*   **MDI Windows:** Full controls (min/max/close) and tiling.
+
+### 🧱 Integrated Security
+*   **Neuro-ID v2:** Advanced hashing with salt.
+*   **Active Firewall & Anti-tamper:** Real-time protection.
+*   **TrustChain:** Digital app signing.
+*   **EvoBridge:** Self-healing system.
+
+### 📦 Simulated Cross-Platform Compatibility
+Neuro-OS Desktop includes interfaces allowing software installation from different ecosystems.
+*(IMPORTANT: Does not redistribute proprietary software, acts as a launcher to official stores).*
+
+| Ecosystem | Manager | Status |
+|:---|:---|:---:|
+| **Windows** | Windows Store Launcher | ✅ Implemented |
+| **Linux** | APT (WSL bridge) | ✅ Implemented |
+| **Android** | ADB APK Installer | ✅ Implemented |
+| **macOS** | App Store + Homebrew | ✅ Implemented |
+
+### 🛠️ System Tools
+*   **Update Manager & Drivers Installer**.
+*   **Logical Defragmenter & Cache Manager**.
+*   **Registry & Text Editor**.
+
+### 🎨 Graphics Suite & 🎧 Multimedia
+*   **Graphics:** 2D Paint Editor, 2D CAD, 3D Viewer.
+*   **Audio:** Music Player, Recorder, Sound Panel.
+*   **Apps:** Integrated Chat, floating widgets.
+
+### ⚡ AI Optimization
+*   **Game Booster:** Resource optimizer for gaming.
+*   **Power Modes:** Performance, Balanced, Power Saver.
+*   **Smart Suspend:** Automatic suspension of inactive windows.
+
+---
+
+## ▶️ Execution
+
+### Requirements
+*   **Python 3.11** or higher.
+*   **PySide6** (Qt) + `pip` + `venv` recommended.
+*   Runs on **Windows** or **Linux**.
+
+### Installation
+```bash
+pip install -r requirements.txt
+```
+
+### Execution
+```bash
+python neuro_os_v3_complete.py
+```
+
+---
+
+## 🤖 About Development
+
+This project was built:
+1.  In **2 intensive days**.
+2.  With previous modules by the author.
+3.  With **AI support** to accelerate architecture and code.
+4.  As a **technical demo** and experimental platform.
+
+> *It does not intend to compete with real operating systems, but to explore UX, AI, modularity, and cross-ecosystem concepts.*
+
+---
+
+## ⭐ Project Status
+
+### Current
+*   ✅ **100% Functional** as a Desktop Environment.
+*   ✅ Stable for testing, demos, and enthusiasts.
+*   ✅ Compatible with Windows and Linux.
+
+### Future
+*   🚀 Custom Kernel (**Neuro-Kernel v1.0**).
+*   🚀 Full Bootable ISO.
+*   🚀 Mobile Version & VR/AR Integration.
+*   🚀 Official App Marketplace.
+
+---
+
+## 🤝 Contributions & Contact
+
+**Pull requests welcome.** New modules, apps, security improvements, and translations are accepted.
+
+*   **Author:** José Manuel Moreno Cano
+*   **Email:** neuro.so.ia.sim@gmail.com
+
+---
+
 <div align="center">
   <h3>🧠 Neuro-OS Desktop</h3>
-  <p><em>“Compatibilidad sin límites. Seguridad sin compromisos.”</em></p>
+  <p><em>“Limitless Compatibility. Uncompromised Security.”</em></p>
 </div>
