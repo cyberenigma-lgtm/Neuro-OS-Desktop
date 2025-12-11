@@ -1,0 +1,48 @@
+name: 🐛 Bug Report
+description: Create a report to help us improve Neuro-OS
+title: "[BUG]: "
+labels: ["bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: When I click X, Y happens instead of Z...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS Version
+      description: Windows 10/11, Linux Distro, etc.
+      placeholder: Windows 11 Pro 23H2
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots & Logs
+      description: Add screenshots or paste terminal output here.
