@@ -25,6 +25,40 @@ try:
 except ImportError:
     WEB_ENABLED = False
 
+try:
+    import psutil
+    PSUTIL_ENABLED = True
+except ImportError:
+    PSUTIL_ENABLED = False
+    print("⚠️ psutil no encontrado. Sensores deshabilitados.")
+
+# Importar Módulo Nativo de Audio
+SKIP_AUDIO = os.getenv('NEURO_SKIP_AUDIO', '0') == '1'
+SKIP_GFX = os.getenv('NEURO_SKIP_GFX', '0') == '1'
+
+if SKIP_AUDIO:
+    AUDIO_STUDIO_AVAILABLE = False
+    print("⚡ Módulos de Audio omitidos (modo rápido)")
+else:
+    try:
+        from neuro_audio_studio import NeuroAudioStudio
+        AUDIO_STUDIO_AVAILABLE = True
+    except ImportError:
+        AUDIO_STUDIO_AVAILABLE = False
+        print("⚠️ Neuro-Audio Studio no encontrado.")
+
+# Importar Módulo GFX
+if SKIP_GFX:
+    GFX_STUDIO_AVAILABLE = False
+    print("⚡ Módulos GFX omitidos (modo rápido)")
+else:
+    try:
+        from neuro_gfx_studio import NeuroGFXPanel
+        GFX_STUDIO_AVAILABLE = True
+    except ImportError:
+        GFX_STUDIO_AVAILABLE = False
+        print("⚠️ Neuro-GFX Studio no encontrado.")
+
 MAX_WINDOWS = 10
 
 # ============================================================
@@ -110,7 +144,18 @@ class StarFieldContainer(QWidget):
         super().__init__(parent)
         self.image_files = []
         self.current_image = None
+        self.stars = []  # Lista de posiciones de estrellas para fallback
         self.load_backgrounds()
+        
+        # Generar estrellas fallback si no hay imágenes
+        if not self.image_files:
+            print("⚠️ Generando fondo de estrellas fallback...")
+            for _ in range(200):
+                x = random.randint(0, 2000)
+                y = random.randint(0, 2000)
+                brightness = random.randint(100, 255)
+                size = random.choice([1, 1, 1, 2])  # Mayoría pequeñas
+                self.stars.append((x, y, brightness, size))
         
         # Timer de Rotación
         self.bg_timer = QTimer(self)
@@ -124,8 +169,9 @@ class StarFieldContainer(QWidget):
         self.mdi_area.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
     def load_backgrounds(self):
-        # Ruta detectada
-        base_path = Path(r"c:\Users\cyber\Documents\NeuroOs\Neuro-OS-Genesis\activos_generados\obras_originales_protegidas")
+        # Ruta relativa
+        base_dir = Path(__file__).parent.parent
+        base_path = base_dir / "activos_generados" / "obras_originales_protegidas"
         if base_path.exists():
             self.image_files = list(base_path.glob("*.png"))
             
@@ -149,27 +195,51 @@ class StarFieldContainer(QWidget):
 
     def paintEvent(self, event):
         p = QPainter(self)
-        # 1. Fondo Negro Base
-        p.fillRect(self.rect(), QColor(0, 0, 0))
+        p.setRenderHint(QPainter.Antialiasing)
         
-        # 2. Imagen 4K Escalada (AspectFill)
-        if self.current_image:
+        # 1. Fondo con Gradiente Espacial (Azul Oscuro)
+        gradient = QLinearGradient(0, 0, 0, self.height())
+        gradient.setColorAt(0, QColor(5, 10, 30))    # Azul muy oscuro arriba
+        gradient.setColorAt(0.5, QColor(10, 15, 40)) # Azul oscuro medio
+        gradient.setColorAt(1, QColor(5, 5, 20))     # Casi negro abajo
+        p.fillRect(self.rect(), gradient)
+        
+        # 2. Imagen 4K Escalada (AspectFill) si existe
+        if self.current_image and not self.current_image.isNull():
             scaled = self.current_image.scaled(self.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
             # Centrar la imagen
             x = (self.width() - scaled.width()) // 2
             y = (self.height() - scaled.height()) // 2
             p.drawPixmap(x, y, scaled)
             
-            # 3. Vinetu Oscuro (Para leer mejor el texto)
+            # 3. Viñeta Oscura (Para leer mejor el texto)
             grad = QRadialGradient(self.width()/2, self.height()/2, self.width()*0.8)
             grad.setColorAt(0, QColor(0,0,0,0))
             grad.setColorAt(1, QColor(0,10,20,180)) # Bordes oscuros
             p.fillRect(self.rect(), grad)
         else:
-            # Fallback Estrellas simple si no hay imagenes
-            p.setPen(Qt.white)
-            for _ in range(100):
-                p.drawPoint(random.randint(0, self.width()), random.randint(0, self.height()))
+            # Fallback: Dibujar estrellas
+            p.setPen(Qt.NoPen)
+            for star_x, star_y, brightness, size in self.stars:
+                # Escalar posición al tamaño actual
+                x = int((star_x / 2000) * self.width())
+                y = int((star_y / 2000) * self.height())
+                
+                color = QColor(brightness, brightness, brightness)
+                p.setBrush(color)
+                p.drawEllipse(x, y, size, size)
+        
+        # DEBUG: Dibujar texto visible para confirmar que se renderiza
+        p.setPen(QColor(0, 255, 255))
+        p.setFont(QFont("Arial", 48, QFont.Bold))
+        p.drawText(self.rect(), Qt.AlignCenter, "🧠 NEURO-OS DESKTOP\n\nSi ves esto, el fondo funciona")
+        
+        # DEBUG: Info de estado
+        p.setFont(QFont("Arial", 16))
+        status = f"Imágenes cargadas: {len(self.image_files)}\n"
+        status += f"Imagen actual: {'Sí' if self.current_image else 'No'}\n"
+        status += f"Estrellas: {len(self.stars)}"
+        p.drawText(20, 100, status)
 
     def resizeEvent(self, event):
         self.mdi_area.setGeometry(self.rect())
@@ -212,15 +282,37 @@ class NeuroCockpit(QMainWindow):
         self.setCentralWidget(self.engine)
         self.mdi = self.engine.mdi_area
         
-        # Cargar Assets
-        assets = Path(r"c:\Users\cyber\Documents\NeuroOs\Neuro-OS-Genesis\activos_generados")
-        self.pix_frame = QPixmap(str(assets / "hud_frame.png"))
-        self.pix_gauge = QPixmap(str(assets / "hud_gauge.png"))
+        # Cargar Assets (Rutas relativas)
+        base_dir = Path(__file__).parent.parent
+        assets = base_dir / "activos_generados"
+        
+        # Cargar HUD Frame si existe
+        hud_frame_path = assets / "hud_frame.png"
+        if hud_frame_path.exists():
+            self.pix_frame = QPixmap(str(hud_frame_path))
+        else:
+            self.pix_frame = QPixmap()  # Pixmap vacío
+            print("⚠️ hud_frame.png no encontrado")
+        
+        # Cargar Gauge si existe, si no crear uno simple
+        hud_gauge_path = assets / "hud_gauge.png"
+        if hud_gauge_path.exists():
+            self.pix_gauge = QPixmap(str(hud_gauge_path))
+        else:
+            # Crear gauge simple programáticamente
+            self.pix_gauge = QPixmap(200, 200)
+            self.pix_gauge.fill(Qt.transparent)
+            painter = QPainter(self.pix_gauge)
+            painter.setPen(QPen(QColor("#00FFFF"), 3))
+            painter.drawEllipse(10, 10, 180, 180)
+            painter.end()
+            print("⚠️ hud_gauge.png no encontrado, usando gauge generado")
         
         # --- UI LAYERS ---
-        self.init_hud_overlay()   # Capa 1: HUD (Blending)
-        self.init_side_panel()    # Capa 2: Botones
-        self.init_gauges()        # Capa 3: Gauges
+        # DEBUG: Deshabilitando capas para ver si el fondo se ve
+        # self.init_hud_overlay()   # Capa 1: HUD (Blending)
+        # self.init_side_panel()    # Capa 2: Botones
+        # self.init_gauges()        # Capa 3: Gauges
 
         # Timer Sensores
         self.stats_timer = QTimer(self)
@@ -238,6 +330,8 @@ class NeuroCockpit(QMainWindow):
             ("📁 FILES", "FILES"), 
             ("🌐 NET", "NET"), 
             ("💻 TERM", "TERM"), 
+            ("🎵 MUSIC", "STUDIO"),  # ✅ Nuevo Botón
+            ("🎮 GFX", "GFX"),      # ✅ Nuevo Botón
             ("⊞ GRID", "GRID")
         ]
         
@@ -334,7 +428,9 @@ class NeuroCockpit(QMainWindow):
         c_y = (self.height() - sub.height()) // 2
         sub.move(c_x, c_y)
 
-    def open_files(self): self.create_window("FILES", AdvancedFileExplorer(r"c:\Users\cyber\Documents\NeuroOs\Neuro-OS-Genesis", self))
+    def open_files(self): 
+        base_dir = Path(__file__).parent.parent
+        self.create_window("FILES", AdvancedFileExplorer(str(base_dir), self))
     def open_web(self): 
         if WEB_ENABLED: w = QWebEngineView(); w.load(QUrl("https://google.com")); self.create_window("EXTRANET BROWSER", w)
     def open_terminal(self): self.create_window("NEURO COMMAND LINE", NeuroTerminalWidget())
@@ -358,10 +454,22 @@ class NeuroCockpit(QMainWindow):
 
         widget = None
         title = app_id
-        if app_id == "FILES": widget = AdvancedFileExplorer(r"c:\Users\cyber\Documents\NeuroOs\Neuro-OS-Genesis", self)
+        if app_id == "FILES": 
+            base_dir = Path(__file__).parent.parent
+            widget = AdvancedFileExplorer(str(base_dir), self)
         elif app_id == "NET": 
             if WEB_ENABLED: widget = QWebEngineView(); widget.load(QUrl("https://google.com"))
         elif app_id == "TERM": widget = NeuroTerminalWidget()
+        elif app_id == "STUDIO": # ✅ Launch Audio Studio
+            if AUDIO_STUDIO_AVAILABLE:
+                widget = NeuroAudioStudio(self, stand_alone=False)
+            else:
+                QMessageBox.warning(self, "Module Missing", "Neuro-Audio Studio module not found.")
+        elif app_id == "GFX": # ✅ Launch GFX Studio
+            if GFX_STUDIO_AVAILABLE:
+                widget = NeuroGFXPanel(self, stand_alone=False)
+            else:
+                QMessageBox.warning(self, "Module Missing", "Neuro-GFX Studio module not found.")
         
         if widget:
             win = self.create_window(title, widget)
@@ -683,8 +791,20 @@ class NeuroCodeEditor(QWidget):
             QMessageBox.critical(self, "Error", str(e))
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    app.setFont(QFont("Segoe UI", 10))
-    win = NeuroCockpit()
-    win.showFullScreen()
-    sys.exit(app.exec())
+    print("🚀 Iniciando Neuro-OS Desktop...")
+    try:
+        app = QApplication(sys.argv)
+        app.setFont(QFont("Segoe UI", 10))
+        print("📦 Creando NeuroCockpit...")
+        win = NeuroCockpit()
+        print("✅ NeuroCockpit creado")
+        print("🖥️ Mostrando ventana...")
+        win.showFullScreen()
+        print("✅ Ventana mostrada, entrando en event loop...")
+        sys.exit(app.exec())
+    except Exception as e:
+        print(f"❌ ERROR FATAL: {e}")
+        import traceback
+        traceback.print_exc()
+        input("Presiona Enter para salir...")
+

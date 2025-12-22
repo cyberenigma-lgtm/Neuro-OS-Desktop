@@ -1,360 +1,328 @@
+# 🧠 NEURO-OS GENESIS
+
 <div align="center">
-  <img src="screenshots/readme_final/neuro_logo_header.png" alt="Neuro-OS Official Logo" width="600">
+
+![Neuro-OS Banner](https://img.shields.io/badge/Neuro--OS-Genesis-00d4ff?style=for-the-badge&logo=windows&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows)
+
+**Un sistema operativo de escritorio revolucionario construido con Python y Qt**
+
+[Características](#-características) • [Instalación](#-instalación) • [Uso](#-uso) • [Contribuir](#-contribuir)
+
 </div>
 
-# 🧠 Neuro-OS Desktop Environment (Español)
-> **Entorno de escritorio multiplataforma – Motor gráfico + gestor de ventanas + ecosistema de aplicaciones**
->
-> 🚧 **EN CONSTRUCCIÓN / UNDER CONSTRUCTION** 🚧
-> *Este proyecto tiene bugs conocidos que se irán corrigiendo. No es una versión estable.*
+---
 
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![Qt](https://img.shields.io/badge/PySide6-Qt%20for%20Python-green?style=for-the-badge&logo=qt)](https://doc.qt.io/qtforpython/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)](https://www.microsoft.com/windows)
+## 📖 Descripción
+
+**Neuro-OS Genesis** es un entorno de escritorio completo y moderno construido desde cero con Python y PySide6. Diseñado para ofrecer una experiencia única que combina la estética futurista con funcionalidad práctica.
+
+### 🎯 ¿Qué hace único a Neuro-OS?
+
+- **🎨 Interfaz Futurista**: Diseño inspirado en sistemas de ciencia ficción con animaciones fluidas
+- **⚡ GFX Optimizer**: Sistema inteligente de optimización de juegos y aplicaciones
+- **🛡️ Radar Automático**: Detección y optimización automática de procesos pesados
+- **🌐 Navegador Integrado**: Navegador web completo dentro del sistema
+- **📁 Explorador de Archivos**: Navegación de archivos con tema personalizado
+- **🎮 Custom Apps**: Añade tus aplicaciones favoritas al escritorio
+- **⚙️ Altamente Configurable**: Panel de configuración completo con persistencia
 
 ---
 
-| **Versión** | **Estado** | **Autor** |
-|:---:|:---:|:---:|
-| v3.0 | Release Candidate | José Manuel Moreno Cano |
+## ✨ Características
 
-![Neuro-Desktop Main](screenshots/readme_final/desktop_main_energy.png)
+### 🖥️ Sistema Completo
+- ✅ Pantalla de boot animada
+- ✅ Sistema de login (usuario: `admin`, contraseña: `admin`)
+- ✅ Escritorio con dock interactivo
+- ✅ Barra de estado con monitoreo en tiempo real (CPU, RAM, batería, red)
+- ✅ Múltiples aplicaciones integradas
 
-## 📌 ¿Qué es Neuro-OS Desktop?
+### 🚀 Aplicaciones Incluidas
 
-**Neuro-OS Desktop** es un entorno de escritorio completo escrito en Python (PySide6/Qt), diseñado para ejecutarse sobre Windows o Linux.
+| Aplicación | Descripción |
+|-----------|-------------|
+| 📁 **Files** | Explorador de archivos con navegación completa |
+| 🌐 **Net** | Navegador web integrado (Chromium) |
+| 💻 **Terminal** | Terminal PowerShell funcional |
+| 🎵 **Media Hub** | Reproductor multimedia con enlaces a servicios |
+| ⚙️ **Settings** | Panel de configuración del sistema |
+| 🎨 **GFX Optimizer** | Optimizador de rendimiento para juegos |
 
-No es un sistema operativo independiente, sino una capa gráfica avanzada que simula la experiencia de un SO moderno con:
+### 🎮 GFX Optimizer
 
-*   ✅ Interfaz estilo sistema operativo futurista
-*   ✅ Dock, multitarea, ventanas MDI
-*   ✅ Gestor de aplicaciones & Temas visuales
-*   ✅ Motor de IA autónoma
-*   ✅ Suite multimedia y gráfica
-*   ✅ Sistema de seguridad multicapa
+El módulo estrella de Neuro-OS:
 
-> *Este repositorio contiene solo el Desktop Environment completo, no el kernel ni la ISO experimental.*
+- **3 Modos de Operación**:
+  - 🛡️ **STABILITY**: Modo pasivo (recomendado)
+  - ⚡ **NEURO HOOK**: Inyección directa (avanzado)
+  - 📡 **STREAM**: Contenedor virtual (experimental)
 
----
+- **🪟 Captura de Ventanas**: Las aplicaciones se capturan y muestran **DENTRO** de Neuro-OS con estilo cyberpunk
+- **Radar Automático**: Detecta juegos lanzados y los optimiza automáticamente
+- **Configuración Avanzada**: Resolución, FPS, upscaling, etc.
+- **Monitoreo en Tiempo Real**: CPU, RAM, procesos activos
+- **Interfaz Personalizada**: Barra de título cyan, bordes neón, tema oscuro
 
-## ⚠️ Importante: Qué NO es este proyecto
+### ⚙️ Sistema de Configuración
 
-Para evitar confusiones:
-
-### ❌ Neuro-OS NO es (todavía):
-*   Un sistema operativo autónomo o independiente.
-*   Un reemplazo de Windows, Linux o macOS.
-*   Un kernel propio customizado a bajo nivel.
-*   Un entorno con drivers, hardware o kernel personalizados.
-
-### ✔️ Neuro-OS SÍ es:
-*   **Un entorno de escritorio** que funciona sobre un sistema operativo existente.
-*   **Un ecosistema modular** de aplicaciones.
-*   **Una simulación de SO multiplataforma**.
-*   **Un proyecto educativo y experimental** para expandir funcionalidades con IA.
-
----
-
-## 🚀 Características principales
-
-### 🖥️ Entorno de escritorio completo
-*   **Pantalla de arranque:** Secuencia de boot simulada.
-*   **Login seguro:** Autenticación real (PBKDF2 + Salt) con visuales biométricos.
-*   **Escritorio:** Wallpaper dinámico (StarField Engine) y Dock personalizable.
-*   **Ventanas MDI:** Controles completos (min/max/close) y tiling.
-
-![Secure Login](screenshots/readme_final/login_screen.png)
-
-### 🧱 Seguridad integrada
-*   **Neuro-ID v2:** Hashing avanzado con salt.
-*   **Firewall activo & Anti-tamper:** Protección en tiempo real.
-*   **TrustChain:** Firma digital de aplicaciones.
-*   **EvoBridge:** Sistema de auto-reparación.
-
-### 📦 Compatibilidad multiplataforma simulada
-Neuro-OS Desktop incluye interfaces que permiten instalar software desde distintos ecosistemas.
-*(IMPORTANTE: No redistribuye software propietario, actúa como launcher hacia tiendas oficiales).*
-
-![Neuro-Store](screenshots/readme_final/neuro_store_android.png)
-
-| Ecosistema | Gestor | Estado |
-|:---|:---|:---:|
-| **Windows** | Windows Store Launcher | ✅ Implementado |
-| **Linux** | APT (WSL bridge) | ✅ Implementado |
-| **Android** | ADB APK Installer | ✅ Implementado |
-| **macOS** | App Store + Homebrew | ✅ Implementado |
-
-### 🛠️ Herramientas del Sistema
-*   **Update Manager & Drivers Installer**.
-*   **Desfragmentador lógico & Gestor de caché**.
-*   **Editor de registro & Texto**.
-
-![System Manager](screenshots/readme_final/system_manager.png)
-
-### 🎨 Suite gráfica & 🎧 Multimedia
-*   **Gráficos:** Editor Paint 2D, CAD 2D, Visualizador 3D.
-*   **Audio:** Reproductor musical, Grabadora, Panel de sonido.
-*   **Apps:** Chat integrado, widgets flotantes.
-
-![Apps Media](screenshots/readme_final/apps_media.png)
-
-### ⚡ Optimización por IA
-*   **Game Booster:** Optimizador de recursos para juegos.
-*   **Modos de Energía:** Performance, Balanced, Power Saver.
-*   **Smart Suspend:** Suspensión automática de ventanas inactivas.
+- 📁 Ruta por defecto del explorador
+- 🌐 Navegador preferido (Auto/Opera/Chrome/Edge/Firefox/Custom)
+- ⚡ Activar/Desactivar radar automático
+- 🎮 Añadir aplicaciones personalizadas al desktop
+- 💾 Guardado persistente en `config.json`
 
 ---
 
-## 📁 Estructura del repositorio
+## 🛠️ Instalación
 
-```text
-/Neuro-OS-Desktop
-│
-├── neuro_os_v3_complete.py         # Entorno de escritorio principal
-├── neuro_resource_manager.py       # Optimización y gestión de memoria
-├── neuro_package_managers.py       # 4 gestores de paquetes
-├── neuro_app_installer.py          # Instalador/desinstalador universal
-├── neuro_essential_apps.py         # Apps esenciales
-├── neuro_system_tools.py           # Herramientas del sistema
-├── neuro_display_misc_control.py   # Configuración de pantalla y miscelánea
-├── neuro_graphics_suite.py         # Paint + CAD + 3D Viewer
-├── neuro_game_booster.py           # Optimizador de juegos con IA
-├── about_neuro_os.py               # Panel About
-│
-└── SYSTEM_DATA/                    # Configuración, usuarios, iconos, cache
+### Requisitos Previos
+
+#### Windows
+- **Windows 10/11** (64-bit)
+- **Python 3.8 o superior**
+- **pip** (gestor de paquetes de Python)
+
+#### Linux
+- **Ubuntu 20.04+** / **Debian 11+** / **Fedora 35+** (o distribuciones similares)
+- **Python 3.8 o superior**
+- **pip** (gestor de paquetes de Python)
+- **Dependencias del sistema**:
+  ```bash
+  # Ubuntu/Debian
+  sudo apt update
+  sudo apt install python3-pip xdotool imagemagick
+  
+  # Fedora
+  sudo dnf install python3-pip xdotool ImageMagick
+  ```
+
+---
+
+### Instalación Rápida
+
+#### 1. **Clonar el repositorio**:
+```bash
+git clone https://github.com/cyberenigma-lgtm/Neuro-OS-Desktop.git
+cd Neuro-OS-Desktop
 ```
 
----
-
-## ▶️ Ejecución
-
-### Requisitos
-*   **Python 3.11** o superior.
-*   **PySide6** (Qt) + `pip` + `venv` recomendados.
-*   Funciona en **Windows** o **Linux**.
-
-### Instalación
+#### 2. **Instalar dependencias de Python**:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Ejecución
+#### 3. **Lanzar Neuro-OS**:
+
+**En Windows:**
 ```bash
-python neuro_os_v3_complete.py
+# Opción 1: Usando el launcher
+.\LAUNCH_NEURO_OS.bat
+
+# Opción 2: Directamente con Python
+cd src
+python NEURO_OS_MASTER.py
+```
+
+**En Linux:**
+```bash
+# Opción 1: Dar permisos y ejecutar
+chmod +x LAUNCH_NEURO_OS.sh
+./LAUNCH_NEURO_OS.sh
+
+# Opción 2: Directamente con Python
+cd src
+python3 NEURO_OS_MASTER.py
 ```
 
 ---
 
-## 🤖 Sobre el desarrollo
+### Instalación del Navegador Web (Opcional pero Recomendado)
 
-Este proyecto fue construido:
-1.  En **2 días intensivos**.
-2.  Con módulos previos del autor.
-3.  Con **apoyo de IA** para acelerar arquitectura y código.
-4.  Como **demostración técnica** y plataforma experimental.
-
-> *No pretende competir con sistemas operativos reales, sino explorar conceptos de UX, IA, modularidad y ecosistemas cruzados.*
-
----
-
-## ⭐ Estado del proyecto
-
-### Actual
-*   ✅ **100% funcional** como Desktop Environment.
-*   ✅ Estable para pruebas, demos y entusiastas.
-*   ✅ Compatible con Windows y Linux.
-
-### Futuro
-*   🚀 Kernel propio (**Neuro-Kernel v1.0**).
-*   🚀 ISO completa booteable.
-*   🚀 Versión Mobile & Integración VR/AR.
-*   🚀 Marketplace oficial de apps.
-
----
-
-## ®️ Propiedad Intelectual
-
-> **AVISO LEGAL:** La marca **Neuro-OS™**, el logotipo, y la arquitectura de software "Neuro-Genesis" se encuentran actualmente en **proceso de registro y patente** ante los organismos de Propiedad Intelectual competentes.
->
-> El uso no autorizado de la marca o la redistribución comercial del código fuente sin consentimiento explícito está prohibido durante este periodo de tramitación.
-
----
-
-## 🤝 Contribuciones & Contacto
-
-**Pull requests bienvenidos.** Se aceptan módulos nuevos, apps, mejoras de seguridad y traducciones.
-
-*   **Autor:** José Manuel Moreno Cano
-*   **Email:** neuro.so.ia.sim@gmail.com
-
----
-
-<br>
-<br>
-
-<div align="center">
-  <img src="screenshots/readme_final/neuro_logo_header.png" alt="Neuro-OS Official Logo" width="600">
-</div>
-
-# 🧠 Neuro-OS Desktop Environment (English)
-> **Cross-platform Desktop Environment – Graphics Engine + Window Manager + App Ecosystem**
->
-> 🚧 **UNDER CONSTRUCTION** 🚧
-> *This project has known bugs that will be fixed progressively. Do not consider it stable yet.*
-
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![Qt](https://img.shields.io/badge/PySide6-Qt%20for%20Python-green?style=for-the-badge&logo=qt)](https://doc.qt.io/qtforpython/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey?style=for-the-badge)](https://www.microsoft.com/windows)
-
----
-
-| **Version** | **Status** | **Author** |
-|:---:|:---:|:---:|
-| v3.0 | Release Candidate | José Manuel Moreno Cano |
-
-## 📌 What is Neuro-OS Desktop?
-
-**Neuro-OS Desktop** is a complete desktop environment written in Python (PySide6/Qt), designed to run on top of Windows or Linux.
-
-It is not a standalone operating system, but an advanced graphical layer that simulates the experience of a modern OS featuring:
-
-*   ✅ Futuristic OS-style Interface
-*   ✅ Dock, Multitasking, MDI Windows
-*   ✅ App Manager & Visual Themes
-*   ✅ Autonomous AI Engine
-*   ✅ Multimedia & Graphics Suite
-*   ✅ Multi-layer Security System
-
-> *This repository contains only the complete Desktop Environment, not the kernel nor the experimental ISO.*
-
----
-
-## ⚠️ Important: What this project is NOT
-
-To avoid confusion:
-
-### ❌ Neuro-OS is NOT (yet):
-*   A standalone or independent operating system.
-*   A replacement for Windows, Linux, or macOS.
-*   A custom low-level kernel.
-*   An environment with custom drivers or hardware abstraction layers.
-
-### ✔️ Neuro-OS IS:
-*   **A desktop environment** running on an existing OS.
-*   **A modular ecosystem** of applications.
-*   **A cross-platform OS simulation**.
-*   **An educational and experimental project** to expand capabilities with AI.
-
----
-
-## 🚀 Key Features
-
-### 🖥️ Full Desktop Environment
-*   **Boot Screen:** Simulated boot sequence.
-*   **Secure Login:** Real authentication (PBKDF2 + Salt) with biometric visuals.
-*   **Desktop:** Dynamic wallpaper (StarField Engine) and customizable Dock.
-*   **MDI Windows:** Full controls (min/max/close) and tiling.
-
-### 🧱 Integrated Security
-*   **Neuro-ID v2:** Advanced hashing with salt.
-*   **Active Firewall & Anti-tamper:** Real-time protection.
-*   **TrustChain:** Digital app signing.
-*   **EvoBridge:** Self-healing system.
-
-### 📦 Simulated Cross-Platform Compatibility
-Neuro-OS Desktop includes interfaces allowing software installation from different ecosystems.
-*(IMPORTANT: Does not redistribute proprietary software, acts as a launcher to official stores).*
-
-| Ecosystem | Manager | Status |
-|:---|:---|:---:|
-| **Windows** | Windows Store Launcher | ✅ Implemented |
-| **Linux** | APT (WSL bridge) | ✅ Implemented |
-| **Android** | ADB APK Installer | ✅ Implemented |
-| **macOS** | App Store + Homebrew | ✅ Implemented |
-
-### 🛠️ System Tools
-*   **Update Manager & Drivers Installer**.
-*   **Logical Defragmenter & Cache Manager**.
-*   **Registry & Text Editor**.
-
-### 🎨 Graphics Suite & 🎧 Multimedia
-*   **Graphics:** 2D Paint Editor, 2D CAD, 3D Viewer.
-*   **Audio:** Music Player, Recorder, Sound Panel.
-*   **Apps:** Integrated Chat, floating widgets.
-
-### ⚡ AI Optimization
-*   **Game Booster:** Resource optimizer for gaming.
-*   **Power Modes:** Performance, Balanced, Power Saver.
-*   **Smart Suspend:** Automatic suspension of inactive windows.
-
----
-
-## ▶️ Execution
-
-### Requirements
-*   **Python 3.11** or higher.
-*   **PySide6** (Qt) + `pip` + `venv` recommended.
-*   Runs on **Windows** or **Linux**.
-
-### Installation
+Para habilitar el navegador web integrado:
 ```bash
-pip install -r requirements.txt
-```
-
-### Execution
-```bash
-python neuro_os_v3_complete.py
+pip install PySide6-WebEngine
 ```
 
 ---
 
-## 🤖 About Development
+## 🎮 Uso
 
-This project was built:
-1.  In **2 intensive days**.
-2.  With previous modules by the author.
-3.  With **AI support** to accelerate architecture and code.
-4.  As a **technical demo** and experimental platform.
+### Primer Inicio
 
-> *It does not intend to compete with real operating systems, but to explore UX, AI, modularity, and cross-ecosystem concepts.*
+1. **Boot Screen**: Espera a que el sistema termine de cargar
+2. **Login**: 
+   - Usuario: `admin`
+   - Contraseña: `admin`
+3. **Desktop**: ¡Explora las aplicaciones desde el dock!
+
+### Atajos de Teclado
+
+- `Esc`: Cerrar ventanas/aplicaciones
+- `Enter`: Confirmar en campos de texto
+
+### Configuración
+
+1. Click en **⚙️ Settings** del dock
+2. Navega por las pestañas:
+   - **🧠 Neuro-OS**: Configuración del sistema
+   - **🎮 Custom Apps**: Añade tus aplicaciones
+   - **🪟 Windows**: Accesos rápidos a configuración de Windows
+
+3. Haz cambios y click en **💾 SAVE & APPLY CHANGES**
+
+### Añadir Aplicaciones Personalizadas
+
+1. Abre **Settings** → **Custom Apps**
+2. Rellena:
+   - **App Name**: Nombre de la aplicación
+   - **Executable Path**: Usa 📂 para buscar el .exe
+   - **Icon**: Un emoji (🎨, 💬, 🎮, etc.)
+3. Click **➕ Add Application**
+4. Click **💾 SAVE & APPLY CHANGES**
+5. Reinicia Neuro-OS para ver los iconos en el desktop
 
 ---
 
-## ⭐ Project Status
+## 📁 Estructura del Proyecto
 
-### Current
-*   ✅ **100% Functional** as a Desktop Environment.
-*   ✅ Stable for testing, demos, and enthusiasts.
-*   ✅ Compatible with Windows and Linux.
-
-### Future
-*   🚀 Custom Kernel (**Neuro-Kernel v1.0**).
-*   🚀 Full Bootable ISO.
-*   🚀 Mobile Version & VR/AR Integration.
-*   🚀 Official App Marketplace.
-
----
-
-## 🤝 Contributions & Contact
-
-**Pull requests welcome.** New modules, apps, security improvements, and translations are accepted.
-
-*   **Author:** José Manuel Moreno Cano
-*   **Email:** neuro.so.ia.sim@gmail.com
+```
+Neuro-OS-Desktop-Release/
+├── src/
+│   ├── NEURO_OS_MASTER.py      # Archivo principal
+│   ├── config_manager.py        # Gestión de configuración
+│   ├── web_browser.py           # Navegador integrado
+│   └── window_capture.py        # Sistema de captura (experimental)
+├── activos_generados/           # Assets visuales
+├── config.json                  # Configuración del usuario
+├── LAUNCH_NEURO_OS.bat         # Launcher de Windows
+├── requirements.txt             # Dependencias Python
+├── README.md                    # Este archivo
+└── LICENSE                      # Licencia MIT
+```
 
 ---
 
-## ®️ Intellectual Property
+## 🔧 Configuración Avanzada
 
-> **LEGAL NOTICE:** The **Neuro-OS™** trademark, logo, and "Neuro-Genesis" software architecture are currently in the **process of registration and patenting** with the relevant Intellectual Property offices.
->
-> Unauthorized use of the brand or commercial redistribution of the source code without explicit consent is prohibited during this processing period.
+### Archivo `config.json`
+
+El sistema guarda la configuración en `config.json`:
+
+```json
+{
+    "file_explorer": {
+        "default_path": "~/Desktop",
+        "show_hidden": false
+    },
+    "browser": {
+        "preferred": "auto",
+        "custom_path": ""
+    },
+    "performance": {
+        "enable_radar": true,
+        "radar_interval_ms": 10000,
+        "memory_threshold_mb": 250
+    },
+    "custom_apps": [
+        {
+            "name": "Discord",
+            "path": "C:/Users/.../Discord.exe",
+            "icon": "💬"
+        }
+    ]
+}
+```
+
+### Optimización de Rendimiento
+
+Para reducir el consumo de recursos:
+
+1. Abre **Settings** → **Neuro-OS**
+2. Desmarca **"Enable Background Game Radar"**
+3. Guarda cambios
+
+---
+
+## 🐛 Solución de Problemas
+
+### El navegador no funciona
+
+**Problema**: Aparece mensaje "QtWebEngine no instalado"
+
+**Solución**:
+```bash
+pip install PySide6-WebEngine
+```
+
+### Alto consumo de CPU/RAM
+
+**Solución**:
+1. Deshabilita el radar automático en Settings
+2. Cierra aplicaciones que no uses
+3. Reduce el número de custom apps
+
+### Error al lanzar
+
+**Problema**: `ModuleNotFoundError`
+
+**Solución**:
+```bash
+pip install -r requirements.txt --upgrade
+```
+
+---
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Si quieres mejorar Neuro-OS:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### Áreas de Mejora
+
+- [ ] Soporte para Linux/macOS
+- [ ] Más aplicaciones integradas
+- [ ] Temas personalizables
+- [ ] Sistema de plugins
+- [ ] Captura de ventanas nativas mejorada
+- [ ] Detección de cuellos de botella (CPU/GPU/RAM)
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 🙏 Agradecimientos
+
+- **PySide6/Qt**: Framework UI increíble
+- **psutil**: Monitoreo de sistema
+- **Comunidad Python**: Por las herramientas y soporte
+
+---
+
+## 📞 Contacto
+
+**Proyecto**: [Neuro-OS Genesis](https://github.com/tu-usuario/Neuro-OS-Genesis)
+
+**Desarrollado con** ❤️ **y mucho** ☕
 
 ---
 
 <div align="center">
-  <h3>🧠 Neuro-OS Desktop</h3>
-  <p><em>“Limitless Compatibility. Uncompromised Security.”</em></p>
+
+### ⭐ Si te gusta el proyecto, dale una estrella en GitHub!
+
+![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?style=for-the-badge&logo=python)
+![Powered by Qt](https://img.shields.io/badge/Powered%20by-Qt-green?style=for-the-badge&logo=qt)
+
 </div>

@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Neuro-OS specific - User config
+config.json
+*.log
+*.tmp
+
+# Backups
+*.bak
+*.backup
+
+# Audio files (DJ Studio)
+src/audio_generado/
+*.mp3
+*.wav
+*.ogg
+
+# DJ Studio and Music modules (no necesario para Desktop)
+src/neuro_audio_studio.py
+src/diagnostico_audio.py
+CODIGO_COMPLETO_PANEL_DJ.md
+src/modulos/advanced_beat_engine.py
+src/modulos/audio_utils.py
+src/modulos/caja_ritmos_profesional.py
+src/modulos/generador_letras.py
+src/modulos/generador_voz_bark.py
+src/modulos/motor_produccion_musical_completo.py
+src/modulos/sincronizador_ritmo_voz.py
+src/modulos/voces_femeninas_ai.py
+
+# Versiones antiguas/alternativas
+src/neuro_os_v3_complete.py
+src/neuro_os_v3_BACKUP_USB.py
+src/neuro_os_complete_with_login.py
+src/neuro_os_desktop_real.py
+src/neuro_os_launcher.py
+src/neuro_os_simple.py
+src/NEURO_OS_FINAL.py
+src/NEURO_OS_REBOOT.py
+src/test_render.py
+
+# System data temporal
+src/SYSTEM_DATA/
+
+# Assets generados (se regeneran automáticamente)
+activos_generados/

@@ -1,68 +1,112 @@
-# Contribuir a Neuro-OS Desktop
+# 🤝 Contribuyendo a Neuro-OS Genesis
 
-Gracias por tu interés en contribuir a Neuro-OS Desktop. Este proyecto busca crear una experiencia de escritorio modular en Python, abierta a mejoras de la comunidad.
+¡Gracias por tu interés en contribuir a Neuro-OS! Este documento proporciona pautas para contribuir al proyecto.
 
-Este documento explica cómo proponer cambios, cómo trabajar con el código y qué se espera en una contribución.
+## 📋 Código de Conducta
 
-## 1. Cómo empezar
+- Sé respetuoso con todos los contribuyentes
+- Acepta críticas constructivas
+- Enfócate en lo mejor para la comunidad
 
-1. Haz un fork del repositorio.
-2. Crea una rama para tu mejora o corrección:
-```bash
-git checkout -b feature/nombre-de-tu-feature
+## 🚀 Cómo Contribuir
+
+### Reportar Bugs
+
+Si encuentras un bug:
+
+1. Verifica que no esté ya reportado en [Issues](https://github.com/tu-usuario/Neuro-OS-Genesis/issues)
+2. Abre un nuevo issue con:
+   - Descripción clara del problema
+   - Pasos para reproducirlo
+   - Comportamiento esperado vs actual
+   - Screenshots si es posible
+   - Tu sistema operativo y versión de Python
+
+### Sugerir Mejoras
+
+Para sugerir nuevas características:
+
+1. Abre un issue con la etiqueta `enhancement`
+2. Describe claramente la funcionalidad
+3. Explica por qué sería útil
+4. Proporciona ejemplos de uso
+
+### Pull Requests
+
+1. **Fork** el repositorio
+2. **Crea una rama** desde `main`:
+   ```bash
+   git checkout -b feature/mi-nueva-caracteristica
+   ```
+3. **Haz tus cambios** siguiendo las guías de estilo
+4. **Prueba** tus cambios
+5. **Commit** con mensajes descriptivos:
+   ```bash
+   git commit -m "feat: añadir nueva característica X"
+   ```
+6. **Push** a tu fork:
+   ```bash
+   git push origin feature/mi-nueva-caracteristica
+   ```
+7. **Abre un Pull Request** en GitHub
+
+## 📝 Guías de Estilo
+
+### Python
+
+- Sigue [PEP 8](https://pep8.org/)
+- Usa nombres descriptivos para variables y funciones
+- Comenta código complejo
+- Máximo 100 caracteres por línea
+
+### Commits
+
+Usa [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` Nueva característica
+- `fix:` Corrección de bug
+- `docs:` Cambios en documentación
+- `style:` Cambios de formato
+- `refactor:` Refactorización de código
+- `test:` Añadir tests
+- `chore:` Tareas de mantenimiento
+
+Ejemplo:
 ```
-3. Realiza tus cambios y pruébalos localmente.
-4. Abre un Pull Request siguiendo la plantilla incluida.
-
-## 2. Requisitos técnicos básicos
-
-Para ejecutar el proyecto necesitas:
-- **Python 3.11+**
-- **PySide6 (Qt for Python)**
-- Dependencias listadas en el README
-
-Para instalar dependencias:
-```bash
-pip install -r requirements.txt
+feat: añadir soporte para temas personalizados
+fix: corregir consumo alto de CPU en radar
+docs: actualizar README con nuevas instrucciones
 ```
 
-Ejecutar el proyecto:
-```bash
-python src/neuro_os_v3_complete.py
-```
+## 🧪 Testing
 
-## 3. Reglas de estilo y calidad
+Antes de enviar un PR:
 
-- Intenta que tu código sea claro, comentado y modularizado.
-- No realices cambios en varias áreas no relacionadas en un mismo PR.
-- Evita introducir dependencias nuevas sin discutirlo antes.
-- Si tu cambio afecta la interfaz, incluye capturas de pantalla.
+1. Prueba que Neuro-OS se lance correctamente
+2. Verifica que todas las aplicaciones funcionen
+3. Comprueba que no haya errores en consola
+4. Prueba en diferentes resoluciones de pantalla
 
-## 4. Issues
+## 📦 Áreas Prioritarias
 
-Antes de abrir un Issue:
-- Revisa que no exista uno similar.
-- Describe claramente el problema o propuesta.
-- Incluye pasos para reproducir errores si corresponde.
+Contribuciones especialmente bienvenidas en:
 
-Para tareas pequeñas aptas para principiantes, búscalas bajo la etiqueta: `good first issue`
+- 🐧 **Soporte multiplataforma** (Linux, macOS)
+- 🎨 **Nuevos temas** y personalizaciones
+- 🔌 **Sistema de plugins**
+- 📱 **Aplicaciones integradas** adicionales
+- 🌐 **Mejoras al navegador** web
+- ⚡ **Optimizaciones de rendimiento**
+- 📚 **Documentación** y tutoriales
 
-## 5. Pull Requests
+## ❓ Preguntas
 
-Tu PR debe incluir:
-- Descripción clara del cambio.
-- Justificación o motivación.
-- Capturas si afecta la UI.
-- Referencia al Issue asociado (si aplica).
-- Confirmación de que lo has probado.
+Si tienes preguntas, abre un issue con la etiqueta `question`.
 
-El equipo revisará y dará feedback si es necesario.
+## 🙏 Agradecimientos
 
-## 6. Conducta
+Todos los contribuyentes serán mencionados en el README.
 
-Toda interacción debe seguir las reglas del CODE OF CONDUCT.
-Este proyecto busca mantener un ambiente respetuoso, profesional y constructivo.
+---
 
-## 7. Preguntas
-
-Si quieres discutir una idea antes de implementarla, utiliza **GitHub Discussions** (cuando esté activado).
+¡Gracias por ayudar a hacer Neuro-OS mejor! 🚀
