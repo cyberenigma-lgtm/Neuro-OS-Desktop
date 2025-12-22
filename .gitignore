@@ -80,4 +80,10 @@ src/test_render.py
 src/SYSTEM_DATA/
 
 # Assets generados (se regeneran automáticamente)
-activos_generados/
+# Excluir fondos de pantalla originales (muy pesados, 24MB cada uno)
+activos_generados/obras_originales_protegidas/
+
+# Mantener fondos cósmicos pequeños y assets esenciales
+!activos_generados/cosmic_bg_*.png
+!activos_generados/hud_*.png
+!activos_generados/CONCEPT_GENESIS_*.png
