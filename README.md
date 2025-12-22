@@ -15,6 +15,23 @@
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+
+### 🖥️ Desktop Principal
+![Neuro-OS Desktop](screenshots/readme_final/desktop_main_energy.png)
+
+### 🔐 Pantalla de Login
+![Login Screen](screenshots/readme_final/login_screen.png)
+
+### 🎮 Aplicaciones
+![Apps](screenshots/readme_final/apps_media.png)
+
+</div>
+
+---
+
 ## 📖 Descripción
 
 **Neuro-OS Genesis** es un entorno de escritorio completo y moderno construido desde cero con Python y PySide6. Diseñado para ofrecer una experiencia única que combina la estética futurista con funcionalidad práctica.
