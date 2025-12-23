@@ -28,6 +28,9 @@ from web_browser import WebBrowserWindow
 # Window Capture
 from window_capture import CapturedAppWindow
 
+# Settings Window
+from settings_window import SettingsWindow
+
 # ============================================================
 # ⚙️ CONFIGURACIÓN Y ESTADOS
 # ============================================================

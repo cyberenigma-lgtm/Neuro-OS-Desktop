@@ -1,0 +1,14 @@
+{
+  "custom_apps": [
+    {
+      "name": "Notepad",
+      "path": "C:/Windows/System32/notepad.exe",
+      "icon": "📝"
+    },
+    {
+      "name": "Calculator",
+      "path": "C:/Windows/System32/calc.exe",
+      "icon": "🔢"
+    }
+  ]
+}
