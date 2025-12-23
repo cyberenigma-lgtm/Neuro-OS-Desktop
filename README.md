@@ -1,8 +1,8 @@
 # 🧠 Neuro-OS Desktop
 
-![Neuro-OS Header](screenshots/readme_final/neuro_logo_header.png)
-
 <div align="center">
+
+![Neuro-OS Header](screenshots/readme_final/neuro_logo_header.png)
 
 ![Version](https://img.shields.io/badge/version-0.1-blue?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.8+-green?style=for-the-badge&logo=python)
