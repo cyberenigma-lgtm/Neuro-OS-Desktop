@@ -267,7 +267,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ### 👤 Author
 
-**José Manuel Moreno Cano**
+**José Manuel Moreno**
 - Website: [neuro-os.es](https://neuro-os.es)
 - GitHub: [@cyberenigma-lgtm](https://github.com/cyberenigma-lgtm)
 
@@ -517,7 +517,7 @@ Licencia MIT - ver archivo [LICENSE](LICENSE) file for details
 
 ### 👤 Autor
 
-**José Manuel Moreno Cano**
+**José Manuel Moreno**
 - Sitio web: [neuro-os.es](https://neuro-os.es)
 - GitHub: [@cyberenigma-lgtm](https://github.com/cyberenigma-lgtm)
 
