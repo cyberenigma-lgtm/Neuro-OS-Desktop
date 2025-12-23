@@ -1,5 +1,7 @@
 # 🧠 Neuro-OS Desktop
 
+![Neuro-OS Header](screenshots/readme_final/neuro_logo_header.png)
+
 <div align="center">
 
 ![Version](https://img.shields.io/badge/version-0.1-blue?style=for-the-badge)
@@ -18,6 +20,8 @@
 ## English
 
 ### 🎯 What is Neuro-OS Desktop?
+
+![Showcase](screenshots/readme_final/desktop_main_energy.png)
 
 Neuro-OS Desktop is an **intelligent desktop environment** with built-in AI optimization that automatically adapts to your hardware to deliver the best gaming and application performance.
 
@@ -196,7 +200,7 @@ pip install pyopencl
 - **Target**: <80MB RAM, ~4% CPU idle
 - **Enabled by default** for maximum performance
 
-### � Performance Improvements
+### 🚀 Performance Improvements
 - **RAM usage**: Reduced from 126MB → **92MB** (27% improvement)
 - **System impact**: Reduced from +84MB → **+64MB**
 - **Rendering**: Optimized star count and caching
@@ -209,7 +213,9 @@ pip install pyopencl
 
 ---
 
-### �📦 Features Overview
+### 📦 Features Overview
+
+![System Settings](screenshots/readme_final/system_manager.png)
 
 #### 1. Settings Panel (5 Tabs)
 
@@ -264,6 +270,8 @@ MIT License - see [LICENSE](LICENSE) file for details
 ## Español
 
 ### 🎯 ¿Qué es Neuro-OS Desktop?
+
+![Showcase](screenshots/readme_final/desktop_main_energy.png)
 
 Neuro-OS Desktop es un **entorno de escritorio inteligente** con optimización por IA que se adapta automáticamente a tu hardware para ofrecer el mejor rendimiento en juegos y aplicaciones.
 
@@ -433,7 +441,7 @@ pip install pyopencl
 - **DNS Cloudflare** (1.1.1.1) para menor latencia
 - **Gestión de ancho de banda**: Cierra torrents y apps que consumen bandwidth automáticamente
 - **Reducción de latencia**: Mejora de 10-30ms
-- **Priorización QoS** para juegos
+- **Priorización QoS para juegos**
 
 ### ⚡ Modo de Optimización Extrema
 - **50% menos estrellas** (50 vs 150) para menor CPU/RAM
@@ -497,7 +505,7 @@ pip install pyopencl
 
 ### 📄 Licencia
 
-Licencia MIT - ver archivo [LICENSE](LICENSE) para detalles
+Licencia MIT - ver archivo [LICENSE](LICENSE) file for details
 
 ### 👤 Autor
 
