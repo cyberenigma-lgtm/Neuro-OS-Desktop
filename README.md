@@ -1,6 +1,6 @@
-# 🧠 Neuro-OS Desktop
-
 <div align="center">
+
+# 🧠 Neuro-OS Desktop
 
 ![Neuro-OS Header](screenshots/readme_final/neuro_logo_header.png)
 
