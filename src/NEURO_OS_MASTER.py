@@ -8,6 +8,17 @@ Estado: 100% Funcional y Estable
 """
 
 import sys
+import io
+
+# ============================================================
+# 🔧 FIX: Configurar UTF-8 para stdout/stderr (Windows Fix)
+# ============================================================
+# Esto previene UnicodeEncodeError cuando se imprimen emojis
+# en consolas Windows que usan cp1252 por defecto
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
+
 import random
 import hashlib
 from pathlib import Path
@@ -132,7 +143,7 @@ class SystemStatusBar(QFrame):
             QMenu::item:selected { background: #003344; color: cyan; }
         """)
         menu.addAction("📊 System Monitor", lambda: self.run_cmd("taskmgr"))
-        menu.addAction("⚙️ Settings", lambda: self.run_cmd("start ms-settings:"))
+        menu.addAction("⚙️ Settings", lambda: self.parent().open_settings())
         menu.addAction("📁 File Explorer", lambda: self.run_cmd("explorer"))
         menu.addSeparator()
         menu.addAction("🔄 Restart", lambda: self.run_cmd("shutdown /r /t 0"))
@@ -203,10 +214,11 @@ class SystemStatusBar(QFrame):
         self.style_icon(btn_user)
         layout.addWidget(btn_user)
         
-        # Timer para actualizar datos (optimizado a 10s para mínimo consumo)
+        # Timer para actualizar datos (modo extremo: 60s, modo normal: 30s)
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_status)
-        self.timer.start(10000) # Cada 10s - Ultra optimizado
+        update_interval = 60000 if hasattr(self.parent(), 'extreme_mode') and self.parent().extreme_mode else 30000
+        self.timer.start(update_interval)  # Modo extremo: cada 60s para CPU idle ~4%
         self.update_status() # Primera ejecución
 
     def style_icon(self, btn):
@@ -283,20 +295,27 @@ class NeuroMaster(QMainWindow):
         # --- CONFIG MANAGER ---
         self.config = ConfigManager()
         
+        # --- MODO EXTREMO DE OPTIMIZACIÓN ---
+        self.extreme_mode = self.config.get('extreme_optimization', True)  # Activado por defecto
+        
         # --- CARGA DE ASSETS ---
         base_dir = Path(__file__).parent.parent
         assets_dir = base_dir / "activos_generados"
         bg_dir = assets_dir / "obras_originales_protegidas"
         
-        # Fondos
+        # Fondos (lazy loading - solo cargar cuando sea necesario)
         self.bg_images = list(bg_dir.glob("*.png")) if bg_dir.exists() else []
-        self.current_bg = QPixmap(str(random.choice(self.bg_images))) if self.bg_images else None
+        self.current_bg = None  # Cargar bajo demanda
+        self._bg_loaded = False
         
-        # Assets HUD
-        self.pix_frame = QPixmap(str(assets_dir / "hud_frame.png")) if (assets_dir / "hud_frame.png").exists() else None
+        # Assets HUD (lazy loading)
+        self.pix_frame = None
+        self._frame_loaded = False
+        self.assets_dir = assets_dir
         
-        # Estrellas (para fondo y salvapantallas)
-        self.stars = [(random.randint(0, 3000), random.randint(0, 2000), random.randint(100, 255)) for _ in range(500)]
+        # Estrellas (modo extremo: 50, modo normal: 150)
+        star_count = 50 if self.extreme_mode else 150
+        self.stars = [(random.randint(0, 3000), random.randint(0, 2000), random.randint(100, 255)) for _ in range(star_count)]
         
         # --- VARIABLES DE ESTADO ---
         # Boot
@@ -329,7 +348,7 @@ class NeuroMaster(QMainWindow):
         
         self.boot_timer = QTimer(self)
         self.boot_timer.timeout.connect(self.process_boot)
-        self.boot_timer.start(800) # Más lento para reducir CPU
+        self.boot_timer.start(1000) # 1s para reducir CPU durante boot
 
     def init_ui_overlays(self):
         """Inicializa widgets nativos que se superponen al renderizado"""
@@ -537,7 +556,26 @@ class NeuroMaster(QMainWindow):
             self.draw_desktop_screen(p)
 
     def draw_background(self, p):
-        # Cachear el fondo para no redibujarlo constantemente
+        # Modo extremo: fondo simple sin cache
+        if hasattr(self, 'extreme_mode') and self.extreme_mode:
+            # Gradiente simple sin estrellas para mínimo CPU
+            grad = QLinearGradient(0, 0, 0, self.height())
+            grad.setColorAt(0, QColor(2, 5, 20))
+            grad.setColorAt(1, QColor(0, 0, 0))
+            p.fillRect(self.rect(), grad)
+            
+            # Solo 10 estrellas en modo extremo
+            for i in range(min(10, len(self.stars))):
+                x, y, b = self.stars[i]
+                sx = int((x / 3000) * self.width())
+                sy = int((y / 2000) * self.height())
+                c = QColor(b, b, b)
+                p.setPen(Qt.NoPen)
+                p.setBrush(c)
+                p.drawEllipse(sx, sy, 2, 2)
+            return
+        
+        # Modo normal: cachear el fondo para no redibujarlo constantemente
         if not hasattr(self, '_cached_bg') or self._cached_bg.size() != self.size():
             self._cached_bg = QPixmap(self.size())
             bg_painter = QPainter(self._cached_bg)
@@ -590,9 +628,14 @@ class NeuroMaster(QMainWindow):
         p.fillRect(self.rect(), rad)
 
     def draw_desktop_screen(self, p):
+        # Lazy load background solo cuando llegamos al desktop
+        if not self._bg_loaded and self.bg_images:
+            self.current_bg = QPixmap(str(random.choice(self.bg_images)))
+            self._bg_loaded = True
+        
         # Imagen 4K de Fondo (si existe)
         if self.current_bg:
-            scaled = self.current_bg.scaled(self.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
+            scaled = self.current_bg.scaled(self.size(), Qt.KeepAspectRatioByExpanding, Qt.FastTransformation)  # FastTransformation para menos CPU
             dx = (self.width() - scaled.width()) // 2
             dy = (self.height() - scaled.height()) // 2
             
@@ -661,7 +704,7 @@ class NeuroMaster(QMainWindow):
 
     def open_settings(self):
         print("⚙️ Abriendo Configuración...")
-        self.settings_app = SettingsWindow(self, self.config)
+        self.settings_app = SettingsWindow(self)
         self.settings_app.show()
 
     # --- UTILIDADES ---
