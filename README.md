@@ -13,6 +13,8 @@
 
 [English](#english) • [Español](#español)
 
+[![Login Screen](screenshots/readme_final/login_screen.png)](https://neuro-os.es)
+
 </div>
 
 ---
@@ -135,6 +137,8 @@ python src/NEURO_OS_MASTER.py
 
 #### Optional: GPU Acceleration
 
+![Apps & Media Showcase](screenshots/readme_final/apps_media.png)
+
 For NVIDIA GPUs (CUDA):
 ```bash
 pip install torch torchvision
@@ -171,6 +175,8 @@ pip install pyopencl
 - Manual app/game management for better control
 
 #### 🎮 Application Management
+
+![Kernel Boot Log](screenshots/readme_final/kernel_boot_log.png)
 - **Manual-Only Approach**: Auto-scanning disabled to save resources
 - **Custom Paths**: Add any application or game manually
 - **Lightweight**: No background scanning processes
@@ -361,6 +367,8 @@ Decisión IA:
 - Acción: Liberar RAM + Reducir prioridad de apps en segundo plano
 - Resultado: Rendimiento estable mantenido
 ```
+
+![Desktop Aesthetic](screenshots/readme_final/desktop_anime.jpg)
 
 ### 🚀 Instalación
 
